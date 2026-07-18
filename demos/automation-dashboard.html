@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="自动化工具控制台 Demo，展示批量任务、运行状态、日志和数据看板。" />
+  <title>自动化工具控制台 Demo</title>
+  <link rel="stylesheet" href="../styles/demo-pages.css" />
+</head>
+<body class="theme-automation">
+  <div class="progress-bar" data-progress></div>
+  <header class="site-header" data-header>
+    <nav class="nav wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark">A</span> AutoPilot</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="autoNav" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="autoNav" data-nav-links>
+        <a href="#stats">数据</a>
+        <a href="#tasks">任务</a>
+        <a href="#process">流程</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">联系</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="kicker">自动化工具控制台</p>
+        <span class="eyebrow">Admin Dashboard for Automation</span>
+        <h1>让重复流程自动运行、可视化管理</h1>
+        <p class="lead">适合自动采集、批量处理、自动发送、报表生成和运行日志管理，让客户看到工具上线后每天如何工作。</p>
+        <div class="actions">
+          <a class="btn" href="#contact">定制工具</a>
+          <a class="btn secondary" href="#tasks">查看任务</a>
+        </div>
+      </div>
+
+      <div class="browser-mock">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <div class="browser-content">
+          <img src="../assets/demo-automation.svg" alt="自动化控制台预览" loading="eager" />
+          <div class="mock-panel">
+            <div class="mock-card"><strong data-count="24" data-suffix="">0</strong>今日任务</div>
+            <div class="mock-card"><strong data-count="98" data-suffix="%">0%</strong>成功率</div>
+            <div class="mock-card"><strong data-count="1200" data-suffix="+">0+</strong>处理文件</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="stats">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>实时数据</h2>
+          <p>管理型工具的重点是状态清晰、结果可追踪。</p>
+        </div>
+        <div class="metric">
+          <article class="card reveal"><strong data-count="24">0</strong><span>今日任务</span></article>
+          <article class="card reveal delay-1"><strong data-count="98" data-suffix="%">0%</strong><span>成功率</span></article>
+          <article class="card reveal delay-2"><strong data-count="1200" data-suffix="+">0+</strong><span>处理文件</span></article>
+          <article class="card reveal delay-3"><strong data-count="6">0</strong><span>运行中</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tasks">
+      <div class="wrap dashboard-layout">
+        <div class="card reveal">
+          <h2>任务列表</h2>
+          <div class="workflow-panel">
+            <div class="workflow-row"><div>任务</div><div>状态</div><div>输出</div><div>动作</div></div>
+            <div class="workflow-row"><div>采集公开数据</div><div>运行中</div><div>CSV</div><div>查看</div></div>
+            <div class="workflow-row"><div>批量重命名</div><div>完成</div><div>文件夹</div><div>查看</div></div>
+            <div class="workflow-row"><div>生成日报</div><div>完成</div><div>PDF</div><div>下载</div></div>
+            <div class="workflow-row"><div>发送通知</div><div>等待确认</div><div>微信</div><div>确认</div></div>
+          </div>
+        </div>
+        <div class="card reveal delay-1">
+          <h2>运行日志</h2>
+          <div class="log-list">
+            <div>09:00 启动采集任务</div>
+            <div>09:03 导出 320 条记录</div>
+            <div>09:05 生成日报完成</div>
+            <div>09:06 等待人工确认发送</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>Why Choose Us</h2>
+          <p>自动化工具需要稳定、可追踪、可交付，而不是只跑一次的脚本。</p>
+        </div>
+        <div class="grid four">
+          <article class="card reveal"><div class="icon">S</div><h3>稳定运行</h3><p>保留日志和状态，方便定位问题。</p></article>
+          <article class="card reveal delay-1"><div class="icon">C</div><h3>源码交付</h3><p>工具逻辑清晰，后续可以维护。</p></article>
+          <article class="card reveal delay-2"><div class="icon">M</div><h3>移动端可看</h3><p>关键数据和任务状态手机也能查看。</p></article>
+          <article class="card reveal delay-3"><div class="icon">D</div><h3>可部署上线</h3><p>支持本地、服务器或静态面板展示。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head center"><h2>Development Process</h2><p>自动化项目会先梳理规则，再做最小可用工具。</p></div>
+        <ol class="timeline">
+          <li class="reveal"><span>01</span><h3>流程梳理</h3><p>确认人工现在怎么做。</p></li>
+          <li class="reveal delay-1"><span>02</span><h3>规则确认</h3><p>确认输入、输出和异常处理。</p></li>
+          <li class="reveal delay-2"><span>03</span><h3>Demo开发</h3><p>先跑通核心任务。</p></li>
+          <li class="reveal"><span>04</span><h3>控制台</h3><p>增加任务状态和运行日志。</p></li>
+          <li class="reveal delay-1"><span>05</span><h3>测试</h3><p>验证多种数据样例。</p></li>
+          <li class="reveal delay-2"><span>06</span><h3>交付</h3><p>提供工具、源码和说明。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>客户评价</h2>
+          <p>自动化工具的关键是稳定和可追踪。</p>
+        </div>
+        <div class="grid">
+          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“任务状态一眼能看懂，出错也能从日志里找到原因。”</p><strong>运营经理 Nora</strong></article>
+          <article class="testimonial reveal delay-1"><div class="stars">★★★★★</div><p>“批量处理节省了很多重复劳动，交付说明也清楚。”</p><strong>电商团队 Bright</strong></article>
+          <article class="testimonial reveal delay-2"><div class="stars">★★★★★</div><p>“控制台比单独脚本更适合给团队使用。”</p><strong>数据专员 Owen</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head"><h2>FAQ</h2><p>自动化工具落地前常见问题。</p></div>
+        <div class="faq-list">
+          <div class="faq-item reveal" data-faq><button class="faq-question" type="button" aria-expanded="false">能自动采集数据吗？<span>+</span></button><div class="faq-answer"><p>可以根据合法公开页面和业务规则进行自动采集，并导出 CSV 或 Excel。</p></div></div>
+          <div class="faq-item reveal delay-1" data-faq><button class="faq-question" type="button" aria-expanded="false">可以自动发送吗？<span>+</span></button><div class="faq-answer"><p>可以做半自动或全自动发送，关键动作建议保留人工确认。</p></div></div>
+          <div class="faq-item reveal delay-2" data-faq><button class="faq-question" type="button" aria-expanded="false">出错怎么办？<span>+</span></button><div class="faq-answer"><p>会记录日志和失败原因，方便人工检查或重新运行。</p></div></div>
+          <div class="faq-item reveal" data-faq><button class="faq-question" type="button" aria-expanded="false">支持部署吗？<span>+</span></button><div class="faq-answer"><p>支持本地运行、服务器运行或做成可视化控制台。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="contact">
+      <div class="wrap">
+        <div class="cta reveal">
+          <h2>把重复流程交给工具</h2>
+          <p>发送你每天重复做的流程、输入文件和输出目标，我会帮你判断适合做成哪种自动化工具。</p>
+          <div class="actions"><a class="btn" href="mailto:ops@autopilot.demo">定制工具</a><a class="btn secondary" href="#tasks">获取报价</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div><h3>AutoPilot</h3><p>自动化控制台 Demo，适合批量任务、采集、文件处理和报表生成。</p></div>
+      <div><h3>Quick Links</h3><a href="#stats">数据</a><a href="#tasks">任务</a><a href="#faq">FAQ</a></div>
+      <div><h3>Services</h3><a href="#">自动采集</a><a href="#">批量处理</a><a href="#">任务面板</a></div>
+      <div><h3>Social</h3><a href="https://github.com/">GitHub</a><a href="mailto:ops@autopilot.demo">Email</a><a href="#autoNav">Back To Top</a></div>
+    </div>
+    <div class="wrap footer-bottom"><p>Copyright © 2026 AutoPilot Systems.</p><a class="back-top" href="#autoNav">Back To Top</a></div>
+  </footer>
+
+  <script src="../scripts/demo-pages.js"></script>
+</body>
+</html>

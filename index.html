@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theron Ye｜Full Stack Developer｜网站开发、自动化工具与 AI 应用</title>
+  <meta name="description" content="Theron Ye 个人开发者主页，提供企业官网、Admin Dashboard、Python 自动化、AI Knowledge Assistant、博客系统等全栈开发服务。" />
+  <meta name="keywords" content="Theron Ye, Full Stack Developer, 网站开发, Python自动化, FastAPI, AI应用开发, RAG, Admin Dashboard, GitHub Pages" />
+  <meta name="author" content="Theron Ye" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Theron Ye｜Full Stack Developer" />
+  <meta property="og:description" content="网站开发、Python 自动化、AI 应用、Admin Dashboard 与可上线静态站点开发。" />
+  <meta property="og:image" content="./assets/og-image.svg" />
+  <meta property="og:url" content="https://thermonye.github.io/" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles/main.css" />
+</head>
+<body>
+  <div class="scroll-progress" data-progress></div>
+  <header class="site-header" data-header>
+    <nav class="nav container" aria-label="主导航">
+      <a class="brand" href="#hero" aria-label="返回首页">
+        <svg class="brand-logo" viewBox="0 0 48 48" aria-hidden="true">
+          <rect width="48" height="48" rx="14"></rect>
+          <path d="M14 15h20M24 15v20M15 35h18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span>Theron Ye</span>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-menu" id="navMenu" data-nav-menu>
+          <a href="#services">服务</a>
+          <a href="#projects">案例</a>
+          <a href="./skills.html">技术栈</a>
+          <a href="./pricing.html">报价</a>
+          <a href="#contact">联系</a>
+        </div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navMenu" data-nav-toggle>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="particle-field" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="glow glow-one" aria-hidden="true"></div>
+      <div class="glow glow-two" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="profile">
+            <div class="avatar-wrap">
+              <div class="avatar-photo">TY</div>
+              <span class="status-dot"></span>
+            </div>
+            <div>
+              <p class="eyebrow">Full Stack Developer</p>
+              <h1>把网站、工具和 AI 应用做成能真正交付的产品</h1>
+            </div>
+          </div>
+          <p class="hero-lead">我帮助个人和中小企业快速完成企业官网、后台管理系统、Python 自动化脚本、AI 知识库与可部署上线的业务工具。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">查看案例</a>
+            <a class="button secondary" href="./pricing.html">查看报价</a>
+          </div>
+          <div class="trust-strip">
+            <span>源码交付</span>
+            <span>可部署上线</span>
+            <span>支持二次修改</span>
+            <span>响应式适配</span>
+          </div>
+        </div>
+
+        <aside class="showcase reveal" aria-label="项目展示轮播">
+          <div class="showcase-top">
+            <span></span><span></span><span></span>
+            <strong data-showcase-title>企业官网截图</strong>
+          </div>
+          <div class="showcase-stage" data-showcase-stage>
+            <article class="showcase-slide is-active" data-showcase-slide>
+              <div class="mock enterprise">
+                <div class="mock-nav"></div>
+                <div class="mock-hero"></div>
+                <div class="mock-row"><i></i><i></i><i></i></div>
+              </div>
+              <p>企业官网 Demo：品牌展示、服务介绍、案例证明和咨询转化。</p>
+            </article>
+            <article class="showcase-slide" data-showcase-slide>
+              <div class="mock dashboard">
+                <div class="mock-side"></div>
+                <div class="mock-bars"><i></i><i></i><i></i><i></i></div>
+              </div>
+              <p>Admin Dashboard 截图预留：数据看板、权限管理、任务状态。</p>
+            </article>
+            <article class="showcase-slide" data-showcase-slide>
+              <div class="mock assistant">
+                <div class="chat left"></div>
+                <div class="chat right"></div>
+                <div class="chat answer"></div>
+              </div>
+              <p>AI Assistant 截图预留：知识库问答、引用来源、工作流入口。</p>
+            </article>
+          </div>
+          <div class="showcase-dots" data-showcase-dots></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Services</p>
+          <h2>可以交付的开发服务</h2>
+          <p>围绕获客、效率、管理和智能化四类真实需求，把页面、脚本和应用做成客户能直接使用的结果。</p>
+        </div>
+        <div class="service-grid" data-service-carousel>
+          <article class="service-card reveal"><div class="icon-box">Web</div><h3>网站开发</h3><p>企业官网、Landing Page、个人主页、作品集和产品介绍页，适合快速上线获客。</p></article>
+          <article class="service-card reveal"><div class="icon-box">Py</div><h3>Python自动化</h3><p>Excel 处理、数据整理、文件批处理、报表生成，把重复操作做成工具。</p></article>
+          <article class="service-card reveal"><div class="icon-box">Ops</div><h3>自动化工具</h3><p>任务控制台、采集工具、批量处理、运行日志和可视化状态面板。</p></article>
+          <article class="service-card reveal"><div class="icon-box">AI</div><h3>AI应用开发</h3><p>AI 聊天助手、知识库问答、RAG、文档总结和轻量业务工作流。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Projects</p>
+          <h2>项目案例</h2>
+          <p>每个案例都包含截图、技术栈、开发时间、在线 Demo 和 GitHub 入口，方便客户快速判断交付能力。</p>
+        </div>
+        <div class="project-grid" data-project-list></div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Process</p>
+          <h2>合作流程清晰，交付边界明确</h2>
+        </div>
+        <ol class="timeline">
+          <li class="timeline-item reveal"><span>01</span><h3>需求沟通</h3><p>确认目标、参考风格、核心功能、预算和上线时间。</p></li>
+          <li class="timeline-item reveal"><span>02</span><h3>方案确认</h3><p>整理页面结构、技术方案、交付内容和修改范围。</p></li>
+          <li class="timeline-item reveal"><span>03</span><h3>Demo开发</h3><p>优先做出可看的核心效果，让方向尽早确定。</p></li>
+          <li class="timeline-item reveal"><span>04</span><h3>正式开发</h3><p>完善功能、响应式、交互、性能和部署细节。</p></li>
+          <li class="timeline-item reveal"><span>05</span><h3>修改优化</h3><p>根据反馈调整文案、布局、样式和使用体验。</p></li>
+          <li class="timeline-item reveal"><span>06</span><h3>部署交付</h3><p>交付源码、上线地址、部署说明和后续维护建议。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="contact">
+      <div class="container contact-grid">
+        <div class="section-heading align-left reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>把你的需求发来，我帮你拆成可交付方案</h2>
+          <p>可以直接发参考链接、截图、表格样例或功能想法。我会帮你判断适合做网站、脚本、后台还是 AI 应用。</p>
+          <a class="button primary" href="mailto:hello@theronye.dev">立即咨询</a>
+        </div>
+        <div class="contact-card reveal">
+          <dl>
+            <div><dt>Email</dt><dd><a href="mailto:hello@theronye.dev">sebastianye123456@gmail.com</a></dd></div>
+            <div><dt>GitHub</dt><dd><a href="https://github.com/thermonye">github.com/theronye</a></dd></div>
+            <div><dt>Services</dt><dd>网站开发 / Python 自动化 / AI 应用</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Copyright 2026 Theron Ye. Built for thermonye.github.io.</p>
+      <nav><a href="./skills.html">Skills</a><a href="./pricing.html">Pricing</a><a href="#hero">Back To Top</a></nav>
+    </div>
+  </footer>
+
+  <script src="./scripts/projects.js"></script>
+  <script src="./scripts/main.js"></script>
+</body>
+</html>

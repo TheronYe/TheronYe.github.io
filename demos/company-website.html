@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NOVA 智造云企业官网，为制造企业提供设备数据采集、生产看板、质量追溯和经营分析平台。" />
+  <title>NOVA 智造云｜企业数字化官网</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f9fc;
+      --surface: rgba(255, 255, 255, 0.88);
+      --strong: #ffffff;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --green: #16a34a;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.11);
+      --radius: 18px;
+      --wrap: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1000px 520px at 8% -8%, rgba(37, 99, 235, 0.15), transparent 54%),
+        radial-gradient(900px 520px at 100% 0%, rgba(22, 163, 74, 0.1), transparent 48%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 58%, #eef4fb 100%);
+      letter-spacing: 0;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.7), transparent 72%);
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .wrap { width: min(100% - 40px, var(--wrap)); margin: 0 auto; }
+    .progress { position: fixed; inset: 0 auto auto 0; z-index: 100; width: 0; height: 3px; background: var(--accent); }
+    .header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.72); border-bottom: 1px solid transparent; backdrop-filter: blur(18px); transition: box-shadow 0.2s ease, border-color 0.2s ease; }
+    .header.scrolled { border-color: var(--line); box-shadow: 0 10px 30px rgba(15,23,42,0.07); }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--ink); color: #fff; }
+    .links { display: flex; align-items: center; gap: 6px; }
+    .links a { padding: 10px 14px; border-radius: 999px; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .links a:hover { background: #eef4ff; color: var(--ink); }
+    .menu { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .menu span { display: block; width: 18px; height: 2px; margin: 4px auto; border-radius: 99px; background: var(--ink); }
+    .hero { min-height: calc(100vh - 72px); display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 60px; align-items: center; padding: 72px 0 92px; }
+    .kicker { margin: 0 0 14px; color: var(--accent); font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 22px; font-size: clamp(42px, 6vw, 72px); line-height: 1.04; }
+    h2 { margin-bottom: 14px; font-size: clamp(30px, 4vw, 48px); line-height: 1.12; }
+    h3 { margin-bottom: 10px; font-size: 20px; }
+    .lead { max-width: 640px; color: var(--muted); font-size: 18px; line-height: 1.8; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 13px 22px; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 900; box-shadow: 0 16px 34px rgba(37,99,235,0.24); transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+    .btn:hover { transform: translateY(-2px); background: var(--accent-dark); }
+    .btn.secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+    .dashboard { border: 1px solid var(--line); border-radius: 26px; background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
+    .dash-top { height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 18px; border-bottom: 1px solid var(--line); }
+    .dot { width: 11px; height: 11px; border-radius: 50%; background: #cbd5e1; }
+    .dot:nth-child(1) { background: #ef4444; } .dot:nth-child(2) { background: #f59e0b; } .dot:nth-child(3) { background: #22c55e; }
+    .dash-body { display: grid; grid-template-columns: 130px 1fr; gap: 22px; padding: 24px; }
+    .side { border-radius: 18px; background: #f1f5f9; padding: 16px; }
+    .side span { display: block; height: 10px; margin-bottom: 14px; border-radius: 999px; background: #cbd5e1; }
+    .side span:first-child { width: 70%; background: var(--accent); }
+    .panel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 16px; }
+    .metric, .chart, .table { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 16px; }
+    .metric strong { display: block; font-size: 28px; }
+    .metric span { color: var(--muted); font-size: 13px; font-weight: 700; }
+    .chart { min-height: 150px; display: flex; align-items: end; gap: 10px; }
+    .chart i { flex: 1; border-radius: 8px 8px 0 0; background: linear-gradient(180deg, #60a5fa, #2563eb); }
+    .chart i:nth-child(1) { height: 42%; } .chart i:nth-child(2) { height: 66%; } .chart i:nth-child(3) { height: 54%; } .chart i:nth-child(4) { height: 82%; } .chart i:nth-child(5) { height: 70%; }
+    .table { min-height: 150px; }
+    .row { height: 12px; margin: 14px 0; border-radius: 999px; background: #e2e8f0; }
+    .row:nth-child(2) { width: 72%; } .row:nth-child(3) { width: 88%; } .row:nth-child(4) { width: 62%; }
+    .section { padding: 96px 0; scroll-margin-top: 88px; }
+    .soft { background: rgba(255,255,255,0.58); border-block: 1px solid rgba(148,163,184,0.18); }
+    .section-head { max-width: 730px; margin-bottom: 38px; }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    .section-head p { color: var(--muted); font-size: 17px; line-height: 1.75; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card, .case, .quote, .faq-item { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 16px 44px rgba(15,23,42,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+    .card:hover, .case:hover, .quote:hover { transform: translateY(-4px); border-color: rgba(37,99,235,0.28); box-shadow: var(--shadow); }
+    .card { padding: 26px; }
+    .icon { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 22px; border-radius: 14px; background: #eff6ff; color: var(--accent); font-weight: 900; }
+    .card p, .case p, .quote p, .timeline p { color: var(--muted); line-height: 1.72; }
+    .case { overflow: hidden; }
+    .case-visual { min-height: 180px; background: linear-gradient(135deg, #0f172a, #2563eb 56%, #93c5fd); }
+    .case:nth-child(2) .case-visual { background: linear-gradient(135deg, #052e16, #16a34a 56%, #bbf7d0); }
+    .case:nth-child(3) .case-visual { background: linear-gradient(135deg, #312e81, #6366f1 56%, #c4b5fd); }
+    .case-body, .quote { padding: 24px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tags span { padding: 6px 9px; border-radius: 999px; background: #f1f5f9; color: #475569; font-size: 12px; font-weight: 800; }
+    .timeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .timeline li { min-height: 190px; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .timeline span { display: inline-grid; place-items: center; width: 36px; height: 36px; margin-bottom: 18px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 900; font-size: 13px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 32px; }
+    .stat { padding: 24px; border-radius: 18px; background: var(--ink); color: #fff; }
+    .stat strong { display: block; font-size: 36px; }
+    .stat span { color: #cbd5e1; }
+    .faq-list { max-width: 840px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq-question { width: 100%; min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 0 22px; border: 0; background: transparent; text-align: left; color: var(--ink); cursor: pointer; font-weight: 900; }
+    .faq-answer { display: none; padding: 0 22px 22px; color: var(--muted); line-height: 1.75; }
+    .faq-item.open .faq-answer { display: block; }
+    .cta { padding: 48px; border-radius: 28px; background: linear-gradient(135deg, #0f172a, #1d4ed8); color: #fff; box-shadow: var(--shadow); }
+    .cta p { max-width: 720px; color: #dbeafe; line-height: 1.8; }
+    .cta .btn { background: #fff; color: var(--ink); }
+    .cta .btn.secondary { background: transparent; color: #fff; border-color: rgba(255,255,255,0.24); }
+    .footer { padding: 44px 0; border-top: 1px solid var(--line); color: var(--muted); }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 28px; }
+    .footer a { display: block; margin: 10px 0; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    @media (max-width: 1040px) { .hero, .grid-4 { grid-template-columns: 1fr 1fr; } .timeline { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 780px) {
+      .wrap { width: min(100% - 28px, var(--wrap)); }
+      .links { position: fixed; inset: 72px 14px auto; display: none; flex-direction: column; align-items: stretch; padding: 12px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: var(--shadow); }
+      .links.open { display: flex; }
+      .menu { display: block; }
+      .hero, .grid-3, .grid-4, .stats, .footer-grid { grid-template-columns: 1fr; }
+      .dash-body { grid-template-columns: 1fr; }
+      .panel-grid, .timeline { grid-template-columns: 1fr; }
+      .section { padding: 72px 0; }
+      .btn { width: 100%; }
+      .cta { padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" data-progress></div>
+  <header class="header" data-header>
+    <nav class="nav wrap">
+      <a class="brand" href="#top"><span class="brand-mark">N</span> NOVA 智造云</a>
+      <button class="menu" type="button" aria-label="打开菜单" aria-expanded="false" data-menu><span></span><span></span><span></span></button>
+      <div class="links" data-links>
+        <a href="#solutions">解决方案</a><a href="#cases">案例</a><a href="#process">流程</a><a href="#faq">FAQ</a><a href="#contact">咨询</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="reveal">
+        <p class="kicker">Manufacturing Data Platform</p>
+        <h1>让工厂数据从现场流向决策桌面</h1>
+        <p class="lead">NOVA 智造云为制造企业提供设备数据采集、生产看板、质量追溯和经营分析。无需推倒现有流程，先从关键产线开始，让管理层每天看到真实进度。</p>
+        <div class="actions"><a class="btn" href="#contact">预约方案演示</a><a class="btn secondary" href="#solutions">查看能力</a></div>
+      </div>
+      <div class="dashboard reveal">
+        <div class="dash-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="dash-body">
+          <aside class="side"><span></span><span></span><span></span><span></span><span></span></aside>
+          <div>
+            <div class="panel-grid">
+              <div class="metric"><strong data-count="98" data-suffix="%">0%</strong><span>设备在线率</span></div>
+              <div class="metric"><strong data-count="24" data-suffix="h">0h</strong><span>异常响应</span></div>
+              <div class="metric"><strong data-count="32" data-suffix="%">0%</strong><span>报表效率提升</span></div>
+            </div>
+            <div class="panel-grid">
+              <div class="chart"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="table"><div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div></div>
+              <div class="metric"><strong>MES</strong><span>ERP / WMS / 设备网关接入</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="solutions">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Solutions</p>
+          <h2>官网不只展示公司，也要说清楚能解决什么</h2>
+          <p>企业客户打开页面后，能快速理解产品能力、适用场景和合作路径。</p>
+        </div>
+        <div class="grid-4">
+          <article class="card reveal"><div class="icon">01</div><h3>生产看板</h3><p>订单进度、设备状态、产线达成率集中展示，适合车间大屏和管理端。</p></article>
+          <article class="card reveal"><div class="icon">02</div><h3>质量追溯</h3><p>批次、工序、检测记录和异常原因可回查，降低人工找表成本。</p></article>
+          <article class="card reveal"><div class="icon">03</div><h3>设备采集</h3><p>接入 PLC、扫码枪、传感器和人工录入，统一沉淀生产数据。</p></article>
+          <article class="card reveal"><div class="icon">04</div><h3>经营分析</h3><p>自动生成日报、周报和核心指标，帮助负责人快速判断瓶颈。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cases">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="kicker">Customer Stories</p>
+          <h2>真实企业官网需要案例和可信度</h2>
+        </div>
+        <div class="grid-3">
+          <article class="case reveal"><div class="case-visual"></div><div class="case-body"><h3>汽车零部件工厂</h3><p>将产线日报从人工 Excel 改为自动看板，异常追踪时间缩短 41%。</p><div class="tags"><span>MES</span><span>Dashboard</span><span>Excel 自动化</span></div></div></article>
+          <article class="case reveal"><div class="case-visual"></div><div class="case-body"><h3>食品包装企业</h3><p>上线批次追溯和质检记录，客户审厂时可直接导出完整报告。</p><div class="tags"><span>Traceability</span><span>QA</span><span>Report</span></div></div></article>
+          <article class="case reveal"><div class="case-visual"></div><div class="case-body"><h3>电子装配车间</h3><p>设备停机、产能波动和人员排班统一展示，管理层每天 9 点看到最新数据。</p><div class="tags"><span>IoT</span><span>OEE</span><span>BI</span></div></div></article>
+        </div>
+        <div class="stats">
+          <div class="stat reveal"><strong data-count="120" data-suffix="+">0+</strong><span>设备接入点</span></div>
+          <div class="stat reveal"><strong data-count="18" data-suffix="天">0天</strong><span>首个看板上线</span></div>
+          <div class="stat reveal"><strong data-count="42" data-suffix="%">0%</strong><span>人工报表减少</span></div>
+          <div class="stat reveal"><strong data-count="99" data-suffix="%">0%</strong><span>数据留存完整率</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="process">
+      <div class="wrap">
+        <div class="section-head center"><p class="kicker">Process</p><h2>合作流程清楚，企业客户才敢推进</h2></div>
+        <ol class="timeline">
+          <li class="reveal"><span>01</span><h3>业务访谈</h3><p>梳理当前流程、痛点、数据来源和上线目标。</p></li>
+          <li class="reveal"><span>02</span><h3>方案设计</h3><p>确认功能范围、系统边界、部署方式和交付节奏。</p></li>
+          <li class="reveal"><span>03</span><h3>原型演示</h3><p>先完成核心看板和关键流程，让业务方确认方向。</p></li>
+          <li class="reveal"><span>04</span><h3>正式开发</h3><p>接入数据、完善权限、报表、导出和移动端适配。</p></li>
+          <li class="reveal"><span>05</span><h3>测试上线</h3><p>现场测试、数据校验、用户培训和上线支持。</p></li>
+          <li class="reveal"><span>06</span><h3>持续迭代</h3><p>根据生产反馈继续扩展模块和分析指标。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">Testimonials</p><h2>来自业务负责人的反馈</h2></div>
+        <div class="grid-3">
+          <article class="quote reveal"><p>“以前每天等 Excel，现在车间大屏和手机端都能看到当天进度。”</p><strong>华东精密 · 生产经理</strong></article>
+          <article class="quote reveal"><p>“项目没有一开始做得很大，而是先把最痛的报表和追溯打通。”</p><strong>安禾包装 · 运营负责人</strong></article>
+          <article class="quote reveal"><p>“交付文档清楚，后续我们内部 IT 也能接着维护。”</p><strong>启明电子 · 信息主管</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="faq">
+      <div class="wrap">
+        <div class="section-head center"><p class="kicker">FAQ</p><h2>上线前常见问题</h2></div>
+        <div class="faq-list">
+          <div class="faq-item reveal"><button class="faq-question" type="button">多久可以上线第一版？<span>+</span></button><div class="faq-answer"><p>通常 2-4 周可以上线第一个业务闭环，复杂项目会拆分为多阶段交付。</p></div></div>
+          <div class="faq-item reveal"><button class="faq-question" type="button">能和现有系统对接吗？<span>+</span></button><div class="faq-answer"><p>可以。常见对接包括 ERP、MES、WMS、数据库、Excel、API 和设备网关。</p></div></div>
+          <div class="faq-item reveal"><button class="faq-question" type="button">支持私有化部署吗？<span>+</span></button><div class="faq-answer"><p>支持本地服务器、云服务器和静态官网托管，部署方案会按数据安全要求选择。</p></div></div>
+          <div class="faq-item reveal"><button class="faq-question" type="button">交付源码和文档吗？<span>+</span></button><div class="faq-answer"><p>交付源码、部署说明、账号权限说明和关键接口文档，方便后续维护。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap"><div class="cta reveal"><p class="kicker">Start A Project</p><h2>从一条产线、一个看板开始数字化</h2><p>发送你的业务流程、现有表格或系统截图，我们会帮你拆出第一版可落地方案。</p><div class="actions"><a class="btn" href="mailto:hello@nova-mfg.cn">预约演示</a><a class="btn secondary" href="#cases">查看案例</a></div></div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div><h3>NOVA 智造云</h3><p>制造企业数字化官网与业务系统展示页面。</p></div>
+      <div><h3>Quick Links</h3><a href="#solutions">解决方案</a><a href="#cases">案例</a><a href="#faq">FAQ</a></div>
+      <div><h3>Services</h3><a href="#solutions">生产看板</a><a href="#solutions">质量追溯</a><a href="#solutions">数据采集</a></div>
+      <div><h3>Contact</h3><a href="mailto:hello@nova-mfg.cn">hello@nova-mfg.cn</a><a href="#top">Back To Top</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector("[data-header]");
+    const progress = document.querySelector("[data-progress]");
+    const menu = document.querySelector("[data-menu]");
+    const links = document.querySelector("[data-links]");
+    function onScroll() {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      header.classList.toggle("scrolled", scrollY > 8);
+      progress.style.width = max > 0 ? `${(scrollY / max) * 100}%` : "0";
+    }
+    menu.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      menu.setAttribute("aria-expanded", String(open));
+    });
+    links.addEventListener("click", (event) => {
+      if (event.target.matches("a")) links.classList.remove("open");
+    });
+    document.querySelectorAll(".faq-question").forEach((button) => {
+      button.addEventListener("click", () => button.closest(".faq-item").classList.toggle("open"));
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          entry.target.querySelectorAll("[data-count]").forEach((item) => {
+            const target = Number(item.dataset.count || 0);
+            const suffix = item.dataset.suffix || "";
+            const start = performance.now();
+            function tick(now) {
+              const progress = Math.min((now - start) / 900, 1);
+              item.textContent = `${Math.round(target * progress)}${suffix}`;
+              if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>

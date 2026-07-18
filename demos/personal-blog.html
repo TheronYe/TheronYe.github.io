@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="林川笔记，一个关注独立开发、自动化工具、AI 应用和长期学习的个人博客。" />
+  <title>林川笔记｜个人博客</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fbfaf7;
+      --paper: rgba(255, 255, 255, 0.86);
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #e7e1d8;
+      --accent: #2f6f5f;
+      --accent-soft: #e8f2ee;
+      --quote: #f4efe7;
+      --shadow: 0 20px 60px rgba(42, 35, 27, 0.1);
+      --wrap: 1080px;
+      --article: 760px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "PingFang SC", "Microsoft YaHei", serif;
+      color: var(--ink);
+      background:
+        linear-gradient(120deg, rgba(47, 111, 95, 0.1), transparent 30%),
+        linear-gradient(240deg, rgba(144, 106, 65, 0.08), transparent 35%),
+        var(--bg);
+      letter-spacing: 0;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(31,41,51,0.035) 1px, transparent 1px);
+      background-size: 100% 38px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.58), transparent 76%);
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .wrap { width: min(100% - 40px, var(--wrap)); margin: 0 auto; }
+    .article-wrap { width: min(100% - 40px, var(--article)); margin: 0 auto; }
+    .progress { position: fixed; inset: 0 auto auto 0; z-index: 100; height: 3px; width: 0; background: var(--accent); }
+    .header { position: sticky; top: 0; z-index: 50; background: rgba(251,250,247,0.78); border-bottom: 1px solid transparent; backdrop-filter: blur(18px); }
+    .header.scrolled { border-color: var(--line); box-shadow: 0 10px 28px rgba(42,35,27,0.07); }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; display: inline-flex; align-items: center; gap: 10px; font-weight: 900; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--ink); color: var(--bg); }
+    .links { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; display: flex; align-items: center; gap: 8px; }
+    .links a { padding: 10px 13px; border-radius: 999px; color: var(--muted); font-size: 14px; font-weight: 700; }
+    .links a:hover { background: var(--accent-soft); color: var(--ink); }
+    .menu { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+    .menu span { display: block; width: 18px; height: 2px; margin: 4px auto; border-radius: 99px; background: var(--ink); }
+    .hero { padding: 92px 0 74px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: end; }
+    .kicker { margin: 0 0 16px; color: var(--accent); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 760px; margin-bottom: 22px; font-size: clamp(44px, 7vw, 88px); line-height: 1.02; letter-spacing: 0; }
+    h2 { margin-bottom: 14px; font-size: clamp(30px, 4vw, 48px); line-height: 1.12; letter-spacing: 0; }
+    h3 { margin-bottom: 10px; font-size: 24px; line-height: 1.25; }
+    .lead { max-width: 720px; color: var(--muted); font-size: 20px; line-height: 1.9; }
+    .author-card { padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); box-shadow: var(--shadow); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .avatar { width: 68px; height: 68px; margin-bottom: 18px; border-radius: 18px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 900; font-size: 22px; }
+    .author-card p, .meta, .excerpt, .note p, .topic p, .quote p { color: var(--muted); line-height: 1.75; }
+    .section { padding: 84px 0; scroll-margin-top: 88px; }
+    .section.soft { background: rgba(255,255,255,0.46); border-block: 1px solid var(--line); }
+    .section-head { max-width: 720px; margin-bottom: 34px; }
+    .featured { display: grid; grid-template-columns: 0.96fr 1.04fr; gap: 34px; align-items: stretch; padding: 22px; border: 1px solid var(--line); border-radius: 30px; background: var(--paper); box-shadow: var(--shadow); }
+    .cover { min-height: 390px; border-radius: 22px; background:
+      radial-gradient(circle at 72% 24%, rgba(255,255,255,0.75) 0 9%, transparent 10%),
+      linear-gradient(135deg, #2f6f5f, #d9c7a7 56%, #fff7e6);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before, .cover::after { content: ""; position: absolute; border-radius: 18px; background: rgba(255,255,255,0.52); }
+    .cover::before { width: 58%; height: 18px; left: 28px; top: 36px; }
+    .cover::after { width: 42%; height: 120px; right: 28px; bottom: 28px; }
+    .featured-body { padding: 24px 12px; }
+    .article-list { display: grid; gap: 16px; }
+    .article { display: grid; grid-template-columns: 1fr 180px; gap: 24px; padding: 24px; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+    .article:hover, .topic:hover, .note:hover { transform: translateY(-3px); border-color: rgba(47,111,95,0.28); box-shadow: var(--shadow); }
+    .thumb { border-radius: 18px; background: linear-gradient(135deg, #e8f2ee, #b8d8cb 52%, #2f6f5f); }
+    .article:nth-child(2) .thumb { background: linear-gradient(135deg, #f4efe7, #dbc3a1 52%, #7c5d3c); }
+    .article:nth-child(3) .thumb { background: linear-gradient(135deg, #eef2ff, #a5b4fc 52%, #3730a3); }
+    .meta { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; font-weight: 700; }
+    .readmore { display: inline-flex; margin-top: 12px; color: var(--accent); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 900; }
+    .topics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .topic, .note, .quote, .newsletter { border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 16px 44px rgba(42,35,27,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+    .topic { padding: 24px; }
+    .topic span { display: inline-flex; margin-bottom: 18px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 12px; font-weight: 900; }
+    .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .note, .quote { padding: 24px; }
+    .quote { background: var(--quote); }
+    .newsletter { padding: 36px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    .form { display: flex; gap: 10px; }
+    .form input { min-height: 48px; min-width: 260px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: #fff; outline: none; }
+    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0 20px; border: 0; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 900; cursor: pointer; }
+    .footer { padding: 44px 0; border-top: 1px solid var(--line); color: var(--muted); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 28px; }
+    .footer a { display: block; margin: 10px 0; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    @media (max-width: 940px) {
+      .hero-grid, .featured, .newsletter { grid-template-columns: 1fr; }
+      .topics, .notes { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .wrap, .article-wrap { width: min(100% - 28px, var(--wrap)); }
+      .links { position: fixed; inset: 70px 14px auto; display: none; flex-direction: column; align-items: stretch; padding: 12px; border: 1px solid var(--line); border-radius: 18px; background: var(--bg); box-shadow: var(--shadow); }
+      .links.open { display: flex; }
+      .menu { display: block; }
+      .hero { padding: 58px 0 54px; }
+      .section { padding: 68px 0; }
+      .article, .topics, .notes, .footer-grid { grid-template-columns: 1fr; }
+      .thumb { min-height: 150px; }
+      .form { flex-direction: column; }
+      .form input, .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" data-progress></div>
+  <header class="header" data-header>
+    <nav class="nav wrap">
+      <a class="brand" href="#top"><span class="brand-mark">LC</span> 林川笔记</a>
+      <button class="menu" type="button" aria-label="打开菜单" aria-expanded="false" data-menu><span></span><span></span><span></span></button>
+      <div class="links" data-links>
+        <a href="#featured">精选</a><a href="#articles">文章</a><a href="#topics">专题</a><a href="#newsletter">订阅</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div class="reveal">
+          <p class="kicker">Independent Developer Journal</p>
+          <h1>记录独立开发、自动化和 AI 应用的长期笔记</h1>
+          <p class="lead">这里不是资讯站，而是一份持续更新的工作日志：我把做项目时遇到的问题、工具选择、交付经验和复盘写下来，留给下一个正在动手的人。</p>
+        </div>
+        <aside class="author-card reveal">
+          <div class="avatar">LC</div>
+          <h3>林川</h3>
+          <p>独立开发者，长期关注小型工具、自动化脚本、个人知识库和 AI 工作流。</p>
+          <p class="meta">每周 2 篇 · 深度实践 · 不追热点</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section soft" id="featured">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">Featured Essay</p><h2>精选文章</h2></div>
+        <article class="featured reveal">
+          <div class="cover" aria-label="文章封面插图"></div>
+          <div class="featured-body">
+            <p class="meta">2026-07-12 · 独立开发 · 12 分钟阅读</p>
+            <h2>接第一个网站项目时，我会先确认这 7 件事</h2>
+            <p class="excerpt">很多项目不是写代码难，而是边界不清楚。本文整理了从需求沟通、参考站、交付物、修改次数到上线部署的确认清单，适合刚开始接单的人直接使用。</p>
+            <a class="readmore" href="#newsletter">阅读全文</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="articles">
+      <div class="article-wrap">
+        <div class="section-head"><p class="kicker">Latest Articles</p><h2>最近更新</h2></div>
+        <div class="article-list">
+          <article class="article reveal"><div><p class="meta">2026-07-10 · Python 自动化</p><h3>把重复整理 Excel 的流程做成一个小工具</h3><p class="excerpt">从真实表格出发，拆分输入、处理、检查和导出四个步骤，让非技术用户也能稳定使用。</p><a class="readmore" href="#newsletter">继续阅读</a></div><div class="thumb"></div></article>
+          <article class="article reveal"><div><p class="meta">2026-07-06 · AI 应用</p><h3>AI 文档问答项目交付时，最容易被忽略的不是模型</h3><p class="excerpt">知识库结构、文件更新、权限边界和答案可追溯，才是真正决定客户能不能长期使用的部分。</p><a class="readmore" href="#newsletter">继续阅读</a></div><div class="thumb"></div></article>
+          <article class="article reveal"><div><p class="meta">2026-07-01 · 网站开发</p><h3>Landing Page 的第一屏到底应该放什么</h3><p class="excerpt">一个好的第一屏需要让用户在 10 秒内知道你是谁、解决什么问题、下一步该点哪里。</p><a class="readmore" href="#newsletter">继续阅读</a></div><div class="thumb"></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="topics">
+      <div class="wrap">
+        <div class="section-head center"><p class="kicker">Topics</p><h2>长期写的四个专题</h2></div>
+        <div class="topics">
+          <article class="topic reveal"><span>Build</span><h3>接单开发</h3><p>需求沟通、报价、交付边界、部署上线和客户维护。</p></article>
+          <article class="topic reveal"><span>Python</span><h3>脚本工具</h3><p>Excel、文件批处理、数据整理、自动办公和报表生成。</p></article>
+          <article class="topic reveal"><span>AI</span><h3>AI 应用</h3><p>知识库、文档问答、聊天机器人和轻量工作流。</p></article>
+          <article class="topic reveal"><span>Notes</span><h3>学习复盘</h3><p>工具选择、项目复盘、效率系统和长期学习方法。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">Field Notes</p><h2>短笔记</h2></div>
+        <div class="notes">
+          <article class="note reveal"><h3>不要先问“能不能做”</h3><p>更好的问题是：做完以后谁使用、多久使用一次、什么结果算成功。</p></article>
+          <article class="note reveal"><h3>小项目也要有交付清单</h3><p>源码、部署方式、账号说明、修改范围，写清楚后双方都轻松。</p></article>
+          <article class="quote reveal"><h3>本周摘录</h3><p>“稳定交付比炫技更能让客户安心。”</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="newsletter">
+      <div class="wrap">
+        <div class="newsletter reveal">
+          <div>
+            <p class="kicker">Newsletter</p>
+            <h2>订阅每周开发笔记</h2>
+            <p class="excerpt">每周发送一次：一个真实问题、一个可复用方法、一个项目复盘。不会频繁打扰。</p>
+          </div>
+          <form class="form">
+            <input type="email" placeholder="you@example.com" aria-label="邮箱地址" />
+            <button class="btn" type="submit">订阅</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div><h3>林川笔记</h3><p>独立开发、自动化工具和 AI 应用的长期记录。</p></div>
+      <div><h3>Quick Links</h3><a href="#featured">精选</a><a href="#articles">文章</a><a href="#topics">专题</a></div>
+      <div><h3>Social</h3><a href="https://github.com/">GitHub</a><a href="mailto:hello@linchuan.dev">Email</a></div>
+      <div><h3>Back</h3><a href="#top">Back To Top</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector("[data-header]");
+    const progress = document.querySelector("[data-progress]");
+    const menu = document.querySelector("[data-menu]");
+    const links = document.querySelector("[data-links]");
+    function onScroll() {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      header.classList.toggle("scrolled", scrollY > 8);
+      progress.style.width = max > 0 ? `${(scrollY / max) * 100}%` : "0";
+    }
+    menu.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      menu.setAttribute("aria-expanded", String(open));
+    });
+    links.addEventListener("click", (event) => {
+      if (event.target.matches("a")) links.classList.remove("open");
+    });
+    document.querySelector(".form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      event.currentTarget.querySelector("button").textContent = "已记录";
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>

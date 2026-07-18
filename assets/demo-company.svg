@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-label="企业官网展示站预览">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f8fafc"/><stop offset=".55" stop-color="#dbeafe"/><stop offset="1" stop-color="#b6c7dc"/></linearGradient>
+    <linearGradient id="hero" x1="0" x2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#0f172a" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect x="70" y="62" width="820" height="474" rx="34" fill="#ffffff" filter="url(#s)"/>
+  <rect x="100" y="96" width="760" height="46" rx="16" fill="#f8fafc"/>
+  <rect x="122" y="112" width="118" height="14" rx="7" fill="#0f172a"/>
+  <rect x="620" y="108" width="62" height="22" rx="11" fill="#dbeafe"/><rect x="696" y="108" width="62" height="22" rx="11" fill="#dbeafe"/><rect x="772" y="108" width="62" height="22" rx="11" fill="#2563eb"/>
+  <rect x="112" y="174" width="346" height="170" rx="28" fill="url(#hero)"/>
+  <rect x="144" y="210" width="220" height="28" rx="14" fill="#fff"/><rect x="144" y="260" width="260" height="13" rx="6.5" fill="#bfdbfe"/><rect x="144" y="288" width="212" height="13" rx="6.5" fill="#bfdbfe"/>
+  <rect x="492" y="174" width="326" height="170" rx="28" fill="#f1f5f9"/>
+  <rect x="526" y="220" width="54" height="90" rx="12" fill="#93c5fd"/><rect x="604" y="196" width="54" height="114" rx="12" fill="#60a5fa"/><rect x="682" y="242" width="54" height="68" rx="12" fill="#2563eb"/><rect x="760" y="208" width="54" height="102" rx="12" fill="#1d4ed8"/>
+  <g transform="translate(112 382)">
+    <rect width="210" height="96" rx="22" fill="#f8fafc" stroke="#e2e8f0"/><rect x="28" y="24" width="44" height="44" rx="14" fill="#dbeafe"/><rect x="88" y="27" width="88" height="14" rx="7" fill="#0f172a"/><rect x="88" y="55" width="70" height="10" rx="5" fill="#94a3b8"/>
+    <rect x="238" width="210" height="96" rx="22" fill="#f8fafc" stroke="#e2e8f0"/><rect x="266" y="24" width="44" height="44" rx="14" fill="#dcfce7"/><rect x="326" y="27" width="88" height="14" rx="7" fill="#0f172a"/><rect x="326" y="55" width="70" height="10" rx="5" fill="#94a3b8"/>
+    <rect x="476" width="210" height="96" rx="22" fill="#f8fafc" stroke="#e2e8f0"/><rect x="504" y="24" width="44" height="44" rx="14" fill="#ede9fe"/><rect x="564" y="27" width="88" height="14" rx="7" fill="#0f172a"/><rect x="564" y="55" width="70" height="10" rx="5" fill="#94a3b8"/>
+  </g>
+</svg>

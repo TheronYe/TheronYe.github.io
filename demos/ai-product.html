@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI应用产品页 Demo，适合 AI 助手、知识库、文档问答和工作流工具展示。" />
+  <title>AI应用产品页 Demo</title>
+  <link rel="stylesheet" href="../styles/demo-pages.css" />
+</head>
+<body class="theme-ai">
+  <div class="progress-bar" data-progress></div>
+  <header class="site-header" data-header>
+    <nav class="nav wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark">A</span> AskFlow AI</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="aiNav" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="aiNav" data-nav-links>
+        <a href="#features">功能</a>
+        <a href="#chat">对话</a>
+        <a href="#process">流程</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">试用</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="kicker">AI Chat / Knowledge Base</p>
+        <span class="eyebrow">AI 应用解决方案</span>
+        <h1>把文档、知识库和流程变成可对话助手</h1>
+        <p class="lead">面向客服答疑、内部资料查询、文档总结和工作流触发，帮助团队减少重复沟通，让知识真正被使用。</p>
+        <div class="actions">
+          <a class="btn" href="#contact">申请试用</a>
+          <a class="btn secondary" href="#chat">查看对话体验</a>
+        </div>
+      </div>
+
+      <div class="browser-mock">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <div class="browser-content">
+          <img src="../assets/demo-ai.svg" alt="AI应用界面预览" loading="eager" />
+          <div class="mock-panel">
+            <div class="mock-card"><strong data-count="92" data-suffix="%">0%</strong>常见问题自动回答</div>
+            <div class="mock-card"><strong data-count="15" data-suffix="s">0s</strong>文档摘要生成</div>
+            <div class="mock-card"><strong data-count="24" data-suffix="/7">0/7</strong>全天候在线咨询</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="features">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>适合定制的 AI 功能</h2>
+          <p>把 AI 能力包装成客户能理解、能试用、能购买的产品界面。</p>
+        </div>
+        <div class="grid four">
+          <article class="card reveal"><div class="icon">Q</div><h3>文档问答</h3><p>上传资料后按原文依据回答，降低人工查询成本。</p></article>
+          <article class="card reveal delay-1"><div class="icon">K</div><h3>知识库</h3><p>把 FAQ、SOP 和产品说明整理成统一入口。</p></article>
+          <article class="card reveal delay-2"><div class="icon">W</div><h3>AI工作流</h3><p>结合摘要、分类、表格生成和自动通知。</p></article>
+          <article class="card reveal delay-3"><div class="icon">A</div><h3>API接入</h3><p>支持与网站、后台和内部工具组合使用。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="chat">
+      <div class="wrap dashboard-layout">
+        <div class="card reveal">
+          <h2>对话体验</h2>
+          <ul class="feature-list">
+            <li>用户：帮我总结报价规则。</li>
+            <li>AI：报价由基础开发费、部署费和后续维护组成。</li>
+            <li>下一步：生成客户回复模板，并附上可复制版本。</li>
+          </ul>
+        </div>
+        <div class="card reveal delay-1">
+          <h2>资料来源</h2>
+          <ul class="feature-list">
+            <li>产品手册.pdf</li>
+            <li>报价政策.docx</li>
+            <li>客户FAQ.xlsx</li>
+            <li>历史客服记录.csv</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Use Cases</h2>
+          <p>不同业务场景可以复用同一套 AI 产品结构。</p>
+        </div>
+        <div class="grid">
+          <article class="project-card reveal">
+            <div class="project-image"><img src="../assets/demo-ai.svg" alt="AI客服案例" loading="lazy" /></div>
+            <div class="project-body"><h3>AI客服助手</h3><p>自动回答常见问题，辅助人工客服提高响应速度。</p><div class="tags"><span>Chat</span><span>FAQ</span><span>API</span></div><div class="project-actions"><a href="#contact">Live Demo</a><a href="../index.html">GitHub</a><a href="#chat">查看详情</a></div></div>
+          </article>
+          <article class="project-card reveal delay-1">
+            <div class="project-image"><img src="../assets/demo-blog.svg" alt="文档知识库案例" loading="lazy" /></div>
+            <div class="project-body"><h3>文档知识库</h3><p>把散落文档变成可搜索、可问答的内部资料中心。</p><div class="tags"><span>RAG</span><span>Docs</span><span>Search</span></div><div class="project-actions"><a href="#contact">Live Demo</a><a href="../index.html">GitHub</a><a href="#chat">查看详情</a></div></div>
+          </article>
+          <article class="project-card reveal delay-2">
+            <div class="project-image"><img src="../assets/demo-automation.svg" alt="AI工作流案例" loading="lazy" /></div>
+            <div class="project-body"><h3>AI工作流</h3><p>把总结、分类、生成表格和通知串成自动化流程。</p><div class="tags"><span>Workflow</span><span>Automation</span><span>Report</span></div><div class="project-actions"><a href="#contact">Live Demo</a><a href="../index.html">GitHub</a><a href="#chat">查看详情</a></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head center"><h2>Development Process</h2><p>AI 项目先验证场景，再接入数据，最后上线测试。</p></div>
+        <ol class="timeline">
+          <li class="reveal"><span>01</span><h3>场景确认</h3><p>确定用户、问题和回答边界。</p></li>
+          <li class="reveal delay-1"><span>02</span><h3>资料整理</h3><p>收集文档、FAQ 和业务规则。</p></li>
+          <li class="reveal delay-2"><span>03</span><h3>Demo验证</h3><p>先做最小可用对话体验。</p></li>
+          <li class="reveal"><span>04</span><h3>功能开发</h3><p>接入问答、上传、历史记录等功能。</p></li>
+          <li class="reveal delay-1"><span>05</span><h3>测试优化</h3><p>检查回答质量和异常场景。</p></li>
+          <li class="reveal delay-2"><span>06</span><h3>部署交付</h3><p>上线应用并提供使用说明。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>客户评价</h2>
+          <p>AI 应用更需要用反馈说明落地效果。</p>
+        </div>
+        <div class="grid">
+          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“客服常见问题基本可以自动回答，人工只处理复杂情况。”</p><strong>林女士 · 客服主管</strong></article>
+          <article class="testimonial reveal delay-1"><div class="stars">★★★★★</div><p>“内部资料查询效率提升很明显，新人上手更快。”</p><strong>赵先生 · 运营负责人</strong></article>
+          <article class="testimonial reveal delay-2"><div class="stars">★★★★★</div><p>“Demo 很快就能验证价值，后续再扩展功能也清楚。”</p><strong>BlueOps 团队</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head"><h2>FAQ</h2><p>AI 项目最常见的问题集中说明。</p></div>
+        <div class="faq-list">
+          <div class="faq-item reveal" data-faq><button class="faq-question" type="button" aria-expanded="false">可以接入自己的资料吗？<span>+</span></button><div class="faq-answer"><p>可以，支持文档、表格、网页内容和整理后的知识库资料。</p></div></div>
+          <div class="faq-item reveal delay-1" data-faq><button class="faq-question" type="button" aria-expanded="false">回答不准怎么办？<span>+</span></button><div class="faq-answer"><p>会通过资料整理、提示词约束和测试样例逐步优化回答质量。</p></div></div>
+          <div class="faq-item reveal delay-2" data-faq><button class="faq-question" type="button" aria-expanded="false">支持部署上线吗？<span>+</span></button><div class="faq-answer"><p>支持部署为网页应用，也可以嵌入现有网站或后台。</p></div></div>
+          <div class="faq-item reveal" data-faq><button class="faq-question" type="button" aria-expanded="false">交源码吗？<span>+</span></button><div class="faq-answer"><p>按项目约定交付源码、部署文档和后续修改说明。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="contact">
+      <div class="wrap">
+        <div class="cta reveal">
+          <h2>把你的资料做成 AI 助手</h2>
+          <p>发送资料类型、想解决的问题和期望入口，我会先帮你判断是否适合做 AI 应用。</p>
+          <div class="actions"><a class="btn" href="mailto:team@askflow.ai">申请试用</a><a class="btn secondary" href="#features">获取报价</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div><h3>AskFlow AI</h3><p>AI 应用产品页 Demo，适合聊天机器人、知识库和文档问答项目。</p></div>
+      <div><h3>Quick Links</h3><a href="#features">功能</a><a href="#chat">对话</a><a href="#faq">FAQ</a></div>
+      <div><h3>Services</h3><a href="#">AI聊天</a><a href="#">知识库</a><a href="#">文档问答</a></div>
+      <div><h3>Social</h3><a href="https://github.com/">GitHub</a><a href="mailto:team@askflow.ai">Email</a><a href="#aiNav">Back To Top</a></div>
+    </div>
+    <div class="wrap footer-bottom"><p>Copyright © 2026 AskFlow AI.</p><a class="back-top" href="#aiNav">Back To Top</a></div>
+  </footer>
+
+  <script src="../scripts/demo-pages.js"></script>
+</body>
+</html>

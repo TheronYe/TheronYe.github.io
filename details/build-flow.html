@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="项目搭建流程图，展示从需求分析、结构规划、视觉设计、前端开发到部署交付的完整过程。" />
+  <title>Demo 搭建流程图</title>
+  <link rel="stylesheet" href="./build-flow.css" />
+</head>
+<body>
+  <div class="progress" data-progress></div>
+  <header class="site-header" data-header>
+    <nav class="nav wrap">
+      <a class="brand" href="../index.html"><span>TY</span> Demo Build Flow</a>
+      <div class="nav-actions">
+        <a href="../index.html#projects">返回案例</a>
+        <a data-demo-link href="../index.html#projects">查看Demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div>
+        <p class="kicker" data-mode-label>Interactive Flow</p>
+        <h1 data-title>项目搭建流程图</h1>
+        <p class="lead" data-summary>从需求到上线，拆解这个 Demo 如何被搭建出来。</p>
+        <div class="hero-tags" data-tags></div>
+      </div>
+      <aside class="hero-panel">
+        <p>Build Status</p>
+        <strong data-status>Ready</strong>
+        <span data-status-copy>点击流程节点查看每一步的交付重点。</span>
+      </aside>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head">
+        <p class="kicker">Blueprint</p>
+        <h2 data-flow-heading>可交互式流程图</h2>
+        <p data-flow-intro>点击任意节点，查看该阶段的目标、产出和客户能看到的结果。</p>
+      </div>
+
+      <div class="flow-shell" data-flow-shell>
+        <div class="flow-map" data-flow-map></div>
+        <article class="step-detail" data-step-detail>
+          <span data-step-index>01</span>
+          <h3 data-step-title>需求分析</h3>
+          <p data-step-copy>明确目标客户、页面结构和转化动作。</p>
+          <ul data-step-points></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap result-grid">
+        <article class="result-card">
+          <p class="kicker">Deliverables</p>
+          <h2>交付物</h2>
+          <ul data-deliverables></ul>
+        </article>
+        <article class="result-card">
+          <p class="kicker">Client Value</p>
+          <h2>客户价值</h2>
+          <p data-value></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="cta">
+        <p class="kicker">Next Step</p>
+        <h2>这个流程可以直接复用到真实项目</h2>
+        <p>后续给客户讲方案时，可以把这里当作“我会如何完成这个网站”的说明页，降低客户的不确定感。</p>
+        <div class="actions">
+          <a class="button" data-demo-link-bottom href="../index.html#projects">查看Demo</a>
+          <a class="button secondary" href="../index.html#contact">咨询类似项目</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Demo build flow page · Static HTML/CSS/JS</p>
+      <a href="#top">Back To Top</a>
+    </div>
+  </footer>
+
+  <script src="./build-flow.js"></script>
+</body>
+</html>

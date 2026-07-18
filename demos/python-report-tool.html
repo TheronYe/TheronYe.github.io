@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Python报表工具 Demo，展示 Excel 自动处理、数据清洗和报表生成服务。" />
+  <title>Python报表工具 Demo</title>
+  <link rel="stylesheet" href="../styles/demo-pages.css" />
+</head>
+<body class="theme-report">
+  <div class="progress-bar" data-progress></div>
+  <header class="site-header" data-header>
+    <nav class="nav wrap">
+      <a class="brand" href="../index.html"><span class="brand-mark">R</span> ReportKit</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="reportNav" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="reportNav" data-nav-links>
+        <a href="#features">能力</a>
+        <a href="#workflow">流程</a>
+        <a href="#cases">案例</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">联系</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="kicker">Excel 自动化工具</p>
+        <span class="eyebrow">Python Automation for Office Teams</span>
+        <h1>把重复 Excel 工作变成一键报表</h1>
+        <p class="lead">面向财务、运营、销售和行政团队，自动完成表格合并、字段清洗、数据校验、日报周报生成和文件归档。</p>
+        <div class="actions">
+          <a class="btn" href="#contact">定制脚本</a>
+          <a class="btn secondary" href="#workflow">查看运行流程</a>
+        </div>
+      </div>
+
+      <div class="browser-mock">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <div class="browser-content">
+          <img src="../assets/demo-report.svg" alt="Python报表工具界面预览" loading="eager" />
+          <div class="mock-panel">
+            <div class="mock-card"><strong data-count="92" data-suffix="%">0%</strong>重复操作减少</div>
+            <div class="mock-card"><strong data-count="4" data-suffix="s">0s</strong>合并 12 份表格</div>
+            <div class="mock-card"><strong data-count="30" data-suffix="+">0+</strong>规则可配置</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="features">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>常见脚本能力</h2>
+          <p>用客户熟悉的业务语言说明脚本价值，比单纯列技术栈更容易成交。</p>
+        </div>
+        <div class="grid four">
+          <article class="card reveal"><div class="icon">X</div><h3>Excel处理</h3><p>合并、拆分、去重、格式转换和字段提取。</p></article>
+          <article class="card reveal delay-1"><div class="icon">D</div><h3>数据清洗</h3><p>字段标准化、异常检查、规则补全和重复检测。</p></article>
+          <article class="card reveal delay-2"><div class="icon">R</div><h3>报表生成</h3><p>日报、周报、统计图和汇总文件自动生成。</p></article>
+          <article class="card reveal delay-3"><div class="icon">A</div><h3>自动运行</h3><p>定时任务、批处理、日志记录和通知提醒。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>运行结果示例</h2>
+          <p>让客户看到脚本处理前后带来的效率变化。</p>
+        </div>
+        <div class="workflow-panel reveal">
+          <div class="workflow-row"><div>任务</div><div>耗时</div><div>状态</div><div>输出</div></div>
+          <div class="workflow-row"><div>合并12份销售表</div><div>4秒</div><div>完成</div><div>xlsx</div></div>
+          <div class="workflow-row"><div>清洗重复客户</div><div>2秒</div><div>完成</div><div>csv</div></div>
+          <div class="workflow-row"><div>生成经营周报</div><div>6秒</div><div>完成</div><div>pdf</div></div>
+          <div class="workflow-row"><div>归档并发送通知</div><div>1秒</div><div>完成</div><div>email</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="cases">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>案例类型</h2>
+          <p>不同办公场景可以使用同一套脚本思路。</p>
+        </div>
+        <div class="grid">
+          <article class="project-card reveal">
+            <div class="project-image"><img src="../assets/demo-report.svg" alt="销售报表案例" loading="lazy" /></div>
+            <div class="project-body"><h3>销售日报生成</h3><p>按门店、人员和日期自动汇总数据。</p><div class="tags"><span>Python</span><span>Pandas</span><span>Excel</span></div><div class="project-actions"><a href="#contact">Live Demo</a><a href="../index.html">GitHub</a><a href="#workflow">查看详情</a></div></div>
+          </article>
+          <article class="project-card reveal delay-1">
+            <div class="project-image"><img src="../assets/demo-automation.svg" alt="文件归档案例" loading="lazy" /></div>
+            <div class="project-body"><h3>文件批量归档</h3><p>按日期、客户和类型自动创建目录并重命名。</p><div class="tags"><span>Batch</span><span>Windows</span><span>CLI</span></div><div class="project-actions"><a href="#contact">Live Demo</a><a href="../index.html">GitHub</a><a href="#workflow">查看详情</a></div></div>
+          </article>
+          <article class="project-card reveal delay-2">
+            <div class="project-image"><img src="../assets/demo-company.svg" alt="经营看板案例" loading="lazy" /></div>
+            <div class="project-body"><h3>经营数据看板</h3><p>将表格数据转成汇总视图，方便老板快速查看。</p><div class="tags"><span>Report</span><span>Chart</span><span>CSV</span></div><div class="project-actions"><a href="#contact">Live Demo</a><a href="../index.html">GitHub</a><a href="#workflow">查看详情</a></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head center"><h2>Development Process</h2><p>脚本项目先跑通规则，再做交付和说明。</p></div>
+        <ol class="timeline">
+          <li class="reveal"><span>01</span><h3>样例确认</h3><p>收集真实表格样例。</p></li>
+          <li class="reveal delay-1"><span>02</span><h3>规则梳理</h3><p>确认字段、筛选和输出。</p></li>
+          <li class="reveal delay-2"><span>03</span><h3>脚本开发</h3><p>实现核心处理流程。</p></li>
+          <li class="reveal"><span>04</span><h3>测试数据</h3><p>覆盖异常和边界场景。</p></li>
+          <li class="reveal delay-1"><span>05</span><h3>打包说明</h3><p>提供运行方式和注意事项。</p></li>
+          <li class="reveal delay-2"><span>06</span><h3>交付维护</h3><p>支持规则小幅调整。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>客户评价</h2>
+          <p>效率工具需要用结果证明价值。</p>
+        </div>
+        <div class="grid">
+          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“以前半小时的表格整理，现在基本一键完成。”</p><strong>销售运营 Linda</strong></article>
+          <article class="testimonial reveal delay-1"><div class="stars">★★★★★</div><p>“脚本说明写得清楚，同事也能自己运行。”</p><strong>行政主管 Kevin</strong></article>
+          <article class="testimonial reveal delay-2"><div class="stars">★★★★★</div><p>“日报格式稳定了，少了很多手动复制粘贴。”</p><strong>财务同学 Emma</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head"><h2>FAQ</h2><p>脚本类项目客户通常最关心这些问题。</p></div>
+        <div class="faq-list">
+          <div class="faq-item reveal" data-faq><button class="faq-question" type="button" aria-expanded="false">多久完成？<span>+</span></button><div class="faq-answer"><p>简单 Excel 脚本通常 1-3 天可以完成，复杂流程按规则数量评估。</p></div></div>
+          <div class="faq-item reveal delay-1" data-faq><button class="faq-question" type="button" aria-expanded="false">需要提供什么？<span>+</span></button><div class="faq-answer"><p>需要提供样例文件、处理规则、期望输出格式和异常情况说明。</p></div></div>
+          <div class="faq-item reveal delay-2" data-faq><button class="faq-question" type="button" aria-expanded="false">支持打包成软件吗？<span>+</span></button><div class="faq-answer"><p>可以按需求打包成命令行工具或简单桌面工具。</p></div></div>
+          <div class="faq-item reveal" data-faq><button class="faq-question" type="button" aria-expanded="false">交源码吗？<span>+</span></button><div class="faq-answer"><p>可交付源码、使用说明和示例文件，方便后续维护。</p></div></div>
+          <div class="faq-item reveal delay-1" data-faq><button class="faq-question" type="button" aria-expanded="false">支持部署或定时运行吗？<span>+</span></button><div class="faq-answer"><p>支持 Windows 定时任务、服务器定时任务或手动一键运行。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="contact">
+      <div class="wrap">
+        <div class="cta reveal">
+          <h2>发送你的表格样例</h2>
+          <p>把样例表、处理规则和想要的输出发来，我会先判断是否适合用脚本自动化。</p>
+          <div class="actions"><a class="btn" href="mailto:ops@reportkit.demo">定制脚本</a><a class="btn secondary" href="#workflow">获取报价</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div><h3>ReportKit</h3><p>Python 报表工具 Demo，适合 Excel 自动处理、报表生成和办公自动化。</p></div>
+      <div><h3>Quick Links</h3><a href="#features">能力</a><a href="#workflow">流程</a><a href="#faq">FAQ</a></div>
+      <div><h3>Services</h3><a href="#">Excel脚本</a><a href="#">报表工具</a><a href="#">文件处理</a></div>
+      <div><h3>Social</h3><a href="https://github.com/">GitHub</a><a href="mailto:ops@reportkit.demo">Email</a><a href="#reportNav">Back To Top</a></div>
+    </div>
+    <div class="wrap footer-bottom"><p>Copyright © 2026 ReportKit.</p><a class="back-top" href="#reportNav">Back To Top</a></div>
+  </footer>
+
+  <script src="../scripts/demo-pages.js"></script>
+</body>
+</html>
